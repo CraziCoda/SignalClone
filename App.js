@@ -1,6 +1,7 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import Settings from "./screens/Setting";
 import Chats from "./screens/Chats";
 import Calls from "./screens/Calls";
@@ -10,41 +11,56 @@ import EntypoIcons from "@expo/vector-icons/Entypo";
 import Header from "./components/Header";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const Main = ({ navigation }) => {
+	return (
+		<Tab.Navigator
+			screenOptions={({ route }) => ({
+				tabBarIcon: ({ focused, color, size }) => {
+					let iconName;
+
+					if (route.name == "Chats") {
+						iconName = !focused ? "chatbubble-outline" : "chatbubble-sharp";
+					} else if (route.name == "Calls") {
+						iconName = !focused ? "call-outline" : "call-sharp";
+					} else if (route.name == "Stories") {
+						iconName = !focused ? "copy-outline" : "copy";
+					}
+
+					return <IonIcons name={iconName} size={size} color={color} />;
+				},
+				tabBarActiveTintColor: "black",
+				tabBarStyle: styles.tabBar,
+				tabBarItemStyle: styles.tabBarItem,
+				tabBarLabelStyle: styles.tabBarLabel,
+				tabBarIconStyle: styles.tabBarIcon,
+				header: () => <Header navigation={navigation} />,
+			})}
+		>
+			<Tab.Screen name="Chats" component={Chats} />
+			<Tab.Screen name="Calls" component={Calls} />
+			<Tab.Screen name="Stories" component={Stories} />
+		</Tab.Navigator>
+	);
+};
 
 export default function App() {
 	return (
-		<SafeAreaView style={styles.container}>
-			<Settings />
-		</SafeAreaView>
-		// <NavigationContainer>
-		// 	<Tab.Navigator
-		// 		screenOptions={({ route }) => ({
-		// 			tabBarIcon: ({ focused, color, size }) => {
-		// 				let iconName;
+		// <SafeAreaView style={styles.container}>
+		// 	<Settings />
+		// </SafeAreaView>
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen
+					name="Main"
+					component={Main}
+					options={{ headerShown: false }}
+				/>
 
-		// 				if (route.name == "Chats") {
-		// 					iconName = !focused ? "chatbubble-outline" : "chatbubble-sharp";
-		// 				} else if (route.name == "Calls") {
-		// 					iconName = !focused ? "call-outline" : "call-sharp";
-		// 				} else if (route.name == "Stories") {
-		// 					iconName = !focused ? "copy-outline" : "copy";
-		// 				}
-
-		// 				return <IonIcons name={iconName} size={size} color={color} />;
-		// 			},
-		// 			tabBarActiveTintColor: "black",
-		// 			tabBarStyle: styles.tabBar,
-		// 			tabBarItemStyle: styles.tabBarItem,
-		// 			tabBarLabelStyle: styles.tabBarLabel,
-		// 			tabBarIconStyle: styles.tabBarIcon,
-		// 			header: () => <Header />,
-		// 		})}
-		// 	>
-		// 		<Tab.Screen name="Chats" component={Chats} />
-		// 		<Tab.Screen name="Calls" component={Calls} />
-		// 		<Tab.Screen name="Stories" component={Stories} />
-		// 	</Tab.Navigator>
-		// </NavigationContainer>
+				<Stack.Screen name="Settings" component={Settings} />
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 }
 const styles = StyleSheet.create({

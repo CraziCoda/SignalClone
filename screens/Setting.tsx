@@ -16,8 +16,7 @@ import FeatureIcons from "@expo/vector-icons/Feather";
 export default function Settings() {
 	function a() {}
 	return (
-		<View>
-			<View style={styles.header}></View>
+		<View style={styles.container}>
 			<ScrollView style={styles.main}>
 				<TouchableHighlight
 					activeOpacity={1.0}
@@ -89,7 +88,7 @@ export default function Settings() {
 				<View style={styles.hr}></View>
 
 				<IconLabel
-					text="Data and storage"
+					text="Payments"
 					icon={<FeatureIcons name="credit-card" size={24} />}
 					onPress={() => {}}
 				/>
@@ -113,7 +112,9 @@ export default function Settings() {
 }
 
 const styles = StyleSheet.create({
-	container: {},
+	container: {
+		height: '100%'
+	},
 	header: {
 		minHeight: 50,
 		borderBottomColor: "#000",
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
 	},
 	main: {
 		width: "100%",
-		marginBottom: 40
+		marginBottom: 0
 	},
 	profileI: {
 		height: 60,
@@ -155,6 +156,6 @@ const styles = StyleSheet.create({
 		borderColor: "#ddd",
 		borderStyle: "solid",
 		borderWidth: 0.5,
-		marginVertical: 5,
+		marginVertical: 0,
 	},
 });

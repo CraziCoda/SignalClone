@@ -1,19 +1,29 @@
-import { View, Text, StyleSheet } from "react-native";
+import {
+	View,
+	Text,
+	StyleSheet,
+	Button,
+	TouchableWithoutFeedback,
+} from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
 
-export default function Header() {
+export default function Header({ navigation }) {
 	return (
 		<View style={styles.header}>
 			<View style={styles.headerLeft}>
-				<View style={styles.profileI}>
-					<Text style={styles.profileT}>k</Text>
-				</View>
+				<TouchableWithoutFeedback
+					onPress={() => navigation.navigate("Settings")}
+				>
+					<View style={styles.profileI}>
+						<Text style={styles.profileT}>k</Text>
+					</View>
+				</TouchableWithoutFeedback>
 				<Text style={styles.headerLeftText}>Signal</Text>
 			</View>
 			<View style={styles.headerRight}>
-                <IonIcons name="search-outline" size={26}/>
-                <IonIcons name="ellipsis-vertical-sharp" size={26} />
-            </View>
+				<IonIcons name="search-outline" size={26} />
+				<IonIcons name="ellipsis-vertical-sharp" size={26} />
+			</View>
 		</View>
 	);
 }
@@ -52,9 +62,9 @@ const styles = StyleSheet.create({
 		fontWeight: "400",
 		color: "#a00",
 	},
-    headerRight: {
-        flexDirection: "row",
-        width: 70,
-        justifyContent: 'space-between'
-    }
+	headerRight: {
+		flexDirection: "row",
+		width: 70,
+		justifyContent: "space-between",
+	},
 });
