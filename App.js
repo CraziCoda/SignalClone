@@ -1,17 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
+import Appearance from './screens/settings/Appeareance';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-     <View><Text> Hello World!</Text></View>
-     
-    </View>
+    <SafeAreaView>
+     <Appearance />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-  backgroundColor: 'red'
-  },
-});
