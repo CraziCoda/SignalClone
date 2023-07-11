@@ -13,38 +13,38 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
 	return (
-		// <SafeAreaView style={styles.container}>
-		// 	<Settings />
-		// </SafeAreaView>
-		<NavigationContainer>
-			<Tab.Navigator
-				screenOptions={({ route }) => ({
-					tabBarIcon: ({ focused, color, size }) => {
-						let iconName;
+		<SafeAreaView style={styles.container}>
+			<Settings />
+		</SafeAreaView>
+		// <NavigationContainer>
+		// 	<Tab.Navigator
+		// 		screenOptions={({ route }) => ({
+		// 			tabBarIcon: ({ focused, color, size }) => {
+		// 				let iconName;
 
-						if (route.name == "Chats") {
-							iconName = !focused ? "chatbubble-outline" : "chatbubble-sharp";
-						} else if (route.name == "Calls") {
-							iconName = !focused ? "call-outline" : "call-sharp";
-						} else if (route.name == "Stories") {
-							iconName = !focused ? "copy-outline" : "copy";
-						}
+		// 				if (route.name == "Chats") {
+		// 					iconName = !focused ? "chatbubble-outline" : "chatbubble-sharp";
+		// 				} else if (route.name == "Calls") {
+		// 					iconName = !focused ? "call-outline" : "call-sharp";
+		// 				} else if (route.name == "Stories") {
+		// 					iconName = !focused ? "copy-outline" : "copy";
+		// 				}
 
-						return <IonIcons name={iconName} size={size} color={color} />;
-					},
-					tabBarActiveTintColor: "black",
-					tabBarStyle: styles.tabBar,
-					tabBarItemStyle: styles.tabBarItem,
-					tabBarLabelStyle: styles.tabBarLabel,
-					tabBarIconStyle: styles.tabBarIcon,
-					header: () => <Header />,
-				})}
-			>
-				<Tab.Screen name="Chats" component={Chats} />
-				<Tab.Screen name="Calls" component={Calls} />
-				<Tab.Screen name="Stories" component={Stories} />
-			</Tab.Navigator>
-		</NavigationContainer>
+		// 				return <IonIcons name={iconName} size={size} color={color} />;
+		// 			},
+		// 			tabBarActiveTintColor: "black",
+		// 			tabBarStyle: styles.tabBar,
+		// 			tabBarItemStyle: styles.tabBarItem,
+		// 			tabBarLabelStyle: styles.tabBarLabel,
+		// 			tabBarIconStyle: styles.tabBarIcon,
+		// 			header: () => <Header />,
+		// 		})}
+		// 	>
+		// 		<Tab.Screen name="Chats" component={Chats} />
+		// 		<Tab.Screen name="Calls" component={Calls} />
+		// 		<Tab.Screen name="Stories" component={Stories} />
+		// 	</Tab.Navigator>
+		// </NavigationContainer>
 	);
 }
 const styles = StyleSheet.create({

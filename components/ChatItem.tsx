@@ -1,9 +1,24 @@
-import { View, StyleSheet, Text, TouchableHighlight } from "react-native";
+import {
+	View,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	GestureResponderEvent,
+} from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
 
-export default function ChatItem() {
+interface ChatItemProps {
+	onPress?: (event: GestureResponderEvent) => void;
+}
+
+export default function ChatItem(props: ChatItemProps) {
 	return (
-		<TouchableHighlight>
+		<TouchableHighlight
+			activeOpacity={1.0}
+			underlayColor="#ddd"
+			onPress={props.onPress}
+			style={styles.touch}
+		>
 			<View style={styles.container}>
 				<View style={styles.profile}>
 					<ProfileIcon />
@@ -34,9 +49,13 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		width: "95%",
-		borderRadius: 10,
 		height: 80,
+        paddingRight: 10
 	},
+	touch: {
+		borderRadius: 30,
+	},
+
 	profile: {
 		width: "15%",
 		justifyContent: "center",
