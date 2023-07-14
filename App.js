@@ -7,9 +7,9 @@ import Chats from "./screens/Chats";
 import Calls from "./screens/Calls";
 import Stories from "./screens/Stories";
 import IonIcons from "@expo/vector-icons/Ionicons";
-import EntypoIcons from "@expo/vector-icons/Entypo";
 import Header from "./components/Header";
-
+import Appearance from "./screens/settings/Appeareance";
+import Messages from "./screens/chat/Messages";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -47,9 +47,6 @@ const Main = ({ navigation }) => {
 
 export default function App() {
 	return (
-		// <SafeAreaView style={styles.container}>
-		// 	<Settings />
-		// </SafeAreaView>
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen
@@ -59,6 +56,12 @@ export default function App() {
 				/>
 
 				<Stack.Screen name="Settings" component={Settings} />
+				<Stack.Screen name="Appearance" component={Appearance} />
+				<Stack.Screen
+					name="Messages"
+					component={Messages}
+					options={{ headerShown: false }}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

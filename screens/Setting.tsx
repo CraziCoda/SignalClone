@@ -6,6 +6,7 @@ import {
 	ScrollView,
 	TouchableHighlight,
 } from "react-native";
+
 import IconLabel from "../components/IconLabel";
 import MatCIcon from "@expo/vector-icons/MaterialCommunityIcons";
 import MatIcon from "@expo/vector-icons/MaterialIcons";
@@ -13,8 +14,8 @@ import EntypoIcons from "@expo/vector-icons/Entypo";
 import SimpleIcons from "@expo/vector-icons/SimpleLineIcons";
 import FeatureIcons from "@expo/vector-icons/Feather";
 
-export default function Settings() {
-	function a() {}
+
+export default function Settings({navigation}) {
 	return (
 		<View style={styles.container}>
 			<ScrollView style={styles.main}>
@@ -54,7 +55,7 @@ export default function Settings() {
 				<IconLabel
 					text="Appearance"
 					icon={<MatCIcon name="brightness-6" size={24} />}
-					onPress={() => {}}
+					onPress={() => navigation.navigate("Appearance")}
 				/>
 
 				<IconLabel
