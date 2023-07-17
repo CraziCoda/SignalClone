@@ -4,15 +4,27 @@ import {
 	StyleSheet,
 	Button,
 	TouchableWithoutFeedback,
+	GestureResponderEvent,
 } from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Header({ navigation }) {
+interface MainHeaderProps {
+	onSearchInput?: (event: GestureResponderEvent) => void;
+	onMenuPressed?: (event: GestureResponderEvent) => void;
+}
+
+export default function Header({
+	onMenuPressed,
+	onSearchInput,
+}: MainHeaderProps) {
+	const navigation = useNavigation();
+
 	return (
 		<View style={styles.header}>
 			<View style={styles.headerLeft}>
 				<TouchableWithoutFeedback
-					onPress={() => navigation.navigate("Settings")}
+					onPress={() => navigation.navigate("Settings" as never)}
 				>
 					<View style={styles.profileI}>
 						<Text style={styles.profileT}>k</Text>
@@ -22,11 +34,18 @@ export default function Header({ navigation }) {
 			</View>
 			<View style={styles.headerRight}>
 				<IonIcons name="search-outline" size={26} />
-				<IonIcons name="ellipsis-vertical-sharp" size={26} />
+				<IonIcons
+					name="ellipsis-vertical-sharp"
+					size={26}
+					onPress={onMenuPressed}
+				/>
 			</View>
+			<View style={{ display: "none" }}></View>
 		</View>
 	);
 }
+
+export function SinglePersonHeader() {}
 
 const styles = StyleSheet.create({
 	header: {

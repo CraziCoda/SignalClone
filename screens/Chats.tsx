@@ -16,18 +16,6 @@ export default function Chats() {
 	return (
 		<TouchableWithoutFeedback>
 			<View style={styles.main}>
-				<MenuPopUp
-					visible={menuVisible}
-					items={[
-						{ name: "New group", onPressed: () => {} },
-						{ name: "Mark all read", onPressed: () => {} },
-						{ name: "Invite friends", onPressed: () => {} },
-						{ name: "Filter unread chats", onPressed: () => {} },
-						{ name: "Settings", onPressed: () => {} },
-						{ name: "Notification profile", onPressed: () => {} },
-					]}
-				/>
-
 				<View>
 					{/* @ts-ignore */}
 					<ChatItem onPress={() => navigation.navigate("Messages")} />
