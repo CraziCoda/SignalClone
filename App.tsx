@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import store from "./redux/store";
 import { makeInvincible, makeVisible } from "./redux/reducers/MenuSlice";
+import Help from "./screens/settings/Help";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -124,6 +125,7 @@ export function All() {
 
 				<Stack.Screen name="Settings" component={Settings} />
 				<Stack.Screen name="Appearance" component={Appearance} />
+				<Stack.Screen name="Help" component={Help} />
 				<Stack.Screen
 					name="Messages"
 					component={Messages}

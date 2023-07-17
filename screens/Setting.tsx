@@ -14,8 +14,7 @@ import EntypoIcons from "@expo/vector-icons/Entypo";
 import SimpleIcons from "@expo/vector-icons/SimpleLineIcons";
 import FeatureIcons from "@expo/vector-icons/Feather";
 
-
-export default function Settings({navigation}) {
+export default function Settings({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<ScrollView style={styles.main}>
@@ -99,7 +98,9 @@ export default function Settings({navigation}) {
 				<IconLabel
 					text="Help"
 					icon={<FeatureIcons name="help-circle" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("Help");
+					}}
 				/>
 
 				<IconLabel
@@ -114,7 +115,7 @@ export default function Settings({navigation}) {
 
 const styles = StyleSheet.create({
 	container: {
-		height: '100%'
+		height: "100%",
 	},
 	header: {
 		minHeight: 50,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
 	},
 	main: {
 		width: "100%",
-		marginBottom: 0
+		marginBottom: 0,
 	},
 	profileI: {
 		height: 60,
