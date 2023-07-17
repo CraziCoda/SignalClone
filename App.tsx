@@ -7,7 +7,7 @@ import Chats from "./screens/Chats";
 import Calls from "./screens/Calls";
 import Stories from "./screens/Stories";
 import IonIcons from "@expo/vector-icons/Ionicons";
-import Header from "./components/Header";
+import Header, { SinglePersonHeader } from "./components/Header";
 import Appearance from "./screens/settings/Appeareance";
 import Messages from "./screens/chat/Messages";
 import MenuPopUp from "./components/MenuPopUp";
@@ -129,7 +129,7 @@ export function All() {
 				<Stack.Screen
 					name="Messages"
 					component={Messages}
-					options={{ headerShown: false }}
+					options={{ header: () => <SinglePersonHeader/>}}
 				/>
 			</Stack.Navigator>
 

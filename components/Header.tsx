@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
 interface MainHeaderProps {
 	onSearchInput?: (event: GestureResponderEvent) => void;
@@ -45,7 +46,13 @@ export default function Header({
 	);
 }
 
-export function SinglePersonHeader() {}
+export function SinglePersonHeader() {
+	return (
+		<View style={styles2.container}>
+			<AntDesign name="arrowleft" size={24} color="black" />
+		</View>
+	);
+}
 
 const styles = StyleSheet.create({
 	header: {
@@ -85,5 +92,11 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		width: 70,
 		justifyContent: "space-between",
+	},
+});
+
+const styles2 = StyleSheet.create({
+	container: {
+		flexDirection: "row",
 	},
 });
