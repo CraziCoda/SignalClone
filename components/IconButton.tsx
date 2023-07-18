@@ -4,12 +4,14 @@ import {
 	Text,
 	TouchableHighlight,
 	ColorValue,
+	GestureResponderEvent,
 } from "react-native";
 import { ReactNode } from "react";
 
 interface IconButtonProps {
 	bgColor: ColorValue;
 	children: ReactNode;
+	onPress?: (event: GestureResponderEvent) => void;
 }
 
 export default function IconButton(props: IconButtonProps) {
@@ -18,7 +20,7 @@ export default function IconButton(props: IconButtonProps) {
 			activeOpacity={0.6}
 			style={[styles.container, { backgroundColor: props.bgColor }]}
 			underlayColor={"#ccf"}
-			onPress={() => {}}
+			onPress={props.onPress}
 		>
 			<View>{props.children}</View>
 		</TouchableHighlight>
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		borderRadius: 20,
 		elevation: 10,
-        margin :10
+		margin: 10,
 	},
 	shadowProps: {
 		shadowColor: "black",

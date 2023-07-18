@@ -23,7 +23,7 @@ export default function Account() {
 				backgroundColor: "whitesmoke",
 			}}
 		>
-			<View
+			{/* <View
 				style={{
 					marginHorizontal: 12,
 					flexDirection: "row",
@@ -41,7 +41,7 @@ export default function Account() {
 				</TouchableOpacity>
 
 				<Text style={{ fontWeight: "bold", fontSize: 20 }}>Accounts</Text>
-			</View>
+			</View> */}
 
 			<ScrollView style={{ marginHorizontal: 12 }}>
 				<View

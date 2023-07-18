@@ -18,6 +18,8 @@ import { makeInvincible, makeVisible } from "./redux/reducers/MenuSlice";
 import Help from "./screens/settings/Help";
 import AppIcon from "./screens/settings/Appearance/AppIcon";
 import Account from "./screens/settings/Account";
+import Donate from "./screens/settings/Donate";
+import ProfileDrawer from "./screens/drawers/ProfileDrawer";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -131,11 +133,12 @@ export function All() {
 				<Stack.Screen
 					name="Messages"
 					component={Messages}
-					options={{ header: () => <SinglePersonHeader/>}}
+					options={{ header: () => <SinglePersonHeader /> }}
 				/>
 			</Stack.Navigator>
 
 			<MenuPopUp items={menuItems} />
+			<ProfileDrawer />
 		</NavigationContainer>
 	);
 }
@@ -143,7 +146,7 @@ export function All() {
 export default function App() {
 	return (
 		<Provider store={store}>
-			<Account />
+			<All />
 		</Provider>
 	);
 }

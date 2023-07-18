@@ -1,13 +1,15 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import menuSlice, { makeVisible } from "./reducers/MenuSlice";
+import DrawerSlice from "./reducers/DrawerSlice";
 
 const store = configureStore({
 	reducer: {
 		menu: menuSlice.reducer,
+		drawer: DrawerSlice.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
-			serializableCheck: false
+			serializableCheck: false,
 		}),
 });
 

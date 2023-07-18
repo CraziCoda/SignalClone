@@ -4,14 +4,20 @@ import {
 	Text,
 	TouchableHighlight,
 	GestureResponderEvent,
+	TouchableWithoutFeedback,
 } from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
+import { useAppDispatch } from "../redux/hooks";
+import { makeDrawerVisible } from "../redux/reducers/DrawerSlice";
 
 interface ChatItemProps {
 	onPress?: (event: GestureResponderEvent) => void;
+	type?: "single" | "group";
 }
 
 export default function ChatItem(props: ChatItemProps) {
+	const dispatch = useAppDispatch();
+
 	return (
 		<TouchableHighlight
 			activeOpacity={1.0}
@@ -20,9 +26,17 @@ export default function ChatItem(props: ChatItemProps) {
 			style={styles.touch}
 		>
 			<View style={styles.container}>
-				<View style={styles.profile}>
+				<TouchableHighlight
+					activeOpacity={0.5}
+					underlayColor="#ddd"
+					onPress={() => {
+						dispatch(makeDrawerVisible({}));
+					}}
+					style={styles.profile}
+				>
 					<ProfileIcon />
-				</View>
+				</TouchableHighlight>
+
 				<View style={styles.main}>
 					<Text style={styles.name}>Ann CS</Text>
 					<Text style={styles.msg}>Hello world</Text>
@@ -50,7 +64,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		width: "95%",
 		height: 80,
-        paddingRight: 10
+		paddingRight: 10,
 	},
 	touch: {
 		borderRadius: 30,
@@ -61,6 +75,7 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		marginLeft: 5,
+		borderRadius: 50,
 	},
 	profileIcon: {
 		backgroundColor: "#faa",

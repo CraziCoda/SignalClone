@@ -21,7 +21,8 @@
     "react-native-gesture-handler": "~2.9.0",
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.1.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "expo-camera": "~13.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

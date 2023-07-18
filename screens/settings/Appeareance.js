@@ -1,13 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Appearance() {
+	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
 			<Label sub="System default">Language</Label>
 			<Label sub="Light">Theme</Label>
 			<Label>Chat color & wallpaper</Label>
-			<Label>App Icon</Label>
+			<Label
+				onPress={() => {
+					navigation.navigate("AppIcon");
+				}}
+			>
+				App Icon
+			</Label>
 			<Label sub="Normal">Message font size</Label>
 			<Label sub="Normal">Navigation bar size</Label>
 		</View>
@@ -19,7 +27,7 @@ function Label(props) {
 		<TouchableHighlight
 			activeOpacity={1.0}
 			underlayColor={"#ddd"}
-			onPress={() => {}}
+			onPress={props.onPress}
 		>
 			<View style={styles.labelContainer}>
 				<Text style={styles.labelMain}>{props.children}</Text>

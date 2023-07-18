@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import MenuPopUp from "../components/MenuPopUp";
 import { TouchableWithoutFeedback } from "react-native";
 import { useState } from "react";
+import { useAppDispatch } from "../redux/hooks";
 
 export default function Chats() {
 	const navigation = useNavigation();
