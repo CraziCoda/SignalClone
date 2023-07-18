@@ -96,7 +96,6 @@ const Main = () => {
 									const items = [
 										{ name: "Story privacy", onPressed: () => {} },
 									];
-
 									dispatch(makeVisible({ payload: items, type: "" }));
 								}}
 							/>

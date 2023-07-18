@@ -4,7 +4,7 @@ import { Ionicons, AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 export default function Messages() {
 	return (
 		<View style={styles.container}>
-			<View style={[{ height: 60 }]}></View>
+			{/* <View style={[{ height: 60 }]}></View> */}
 			<ScrollView
 				style={[
 					{
