@@ -16,6 +16,8 @@ import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import store from "./redux/store";
 import { makeInvincible, makeVisible } from "./redux/reducers/MenuSlice";
 import Help from "./screens/settings/Help";
+import AppIcon from "./screens/settings/Appearance/AppIcon";
+import Account from "./screens/settings/Account";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -124,6 +126,7 @@ export function All() {
 
 				<Stack.Screen name="Settings" component={Settings} />
 				<Stack.Screen name="Appearance" component={Appearance} />
+				<Stack.Screen name="AppIcon" component={AppIcon} />
 				<Stack.Screen name="Help" component={Help} />
 				<Stack.Screen
 					name="Messages"
@@ -140,7 +143,7 @@ export function All() {
 export default function App() {
 	return (
 		<Provider store={store}>
-			<All />
+			<Account />
 		</Provider>
 	);
 }
