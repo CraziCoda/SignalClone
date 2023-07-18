@@ -17,7 +17,6 @@ export default function ProfileDrawer() {
 	const dispatch = useAppDispatch();
 
 	const navigation = useNavigation();
-
 	return (
 		<TouchableWithoutFeedback
 			style={[styles.overlay]}

@@ -14,6 +14,7 @@ import EntypoIcons from "@expo/vector-icons/Entypo";
 import SimpleIcons from "@expo/vector-icons/SimpleLineIcons";
 import FeatureIcons from "@expo/vector-icons/Feather";
 
+
 export default function Settings({ navigation }) {
 	return (
 		<View style={styles.container}>
@@ -71,7 +72,7 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Notifications"
 					icon={<SimpleIcons name="bell" size={24} />}
-					onPress={() => {}}
+					onPress={() => {navigation.navigate("Notifications")}}
 				/>
 
 				<IconLabel

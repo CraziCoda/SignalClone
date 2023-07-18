@@ -20,6 +20,8 @@ import AppIcon from "./screens/settings/Appearance/AppIcon";
 import Account from "./screens/settings/Account";
 import Donate from "./screens/settings/Donate";
 import ProfileDrawer from "./screens/drawers/ProfileDrawer";
+import GroupInfo from "./screens/chat/GroupInfo";
+import Notifications from "./screens/settings/Notifications";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -129,6 +131,8 @@ export function All() {
 				<Stack.Screen name="Settings" component={Settings} />
 				<Stack.Screen name="Appearance" component={Appearance} />
 				<Stack.Screen name="AppIcon" component={AppIcon} />
+				<Stack.Screen name="GroupInfo" component={GroupInfo} />
+				<Stack.Screen name="Notifications" component={Notifications} />
 				<Stack.Screen name="Help" component={Help} />
 				<Stack.Screen
 					name="Messages"
