@@ -105,9 +105,13 @@ const Main = () => {
 							<Header
 								onMenuPressed={() => {
 									const items = [
-										{ name: "Story privacy", onPressed: () => {
-											navigation.navigate("Status privacy" as never)
-										} },
+										{
+											name: "Story privacy",
+											onPressed: () => {
+												dispatch(makeInvincible());
+												navigation.navigate("Status privacy" as never);
+											},
+										},
 									];
 									dispatch(makeVisible({ payload: items, type: "" }));
 								}}
