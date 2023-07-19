@@ -2,10 +2,9 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Privacy() {
+export default function StatusPrivacy() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}></View>
       <Text style={styles.Texty}>
         Story updates automatically disappears after 24 hours. Choose who can
         view your story or create new stories with specific viewers or groups.{" "}

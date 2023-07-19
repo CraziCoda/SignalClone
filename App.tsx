@@ -26,6 +26,7 @@ import Privacy from "./screens/settings/Privacy";
 import GroupMessages from "./screens/chat/GroupMessages";
 import ChatScreen from "./screens/settings/ChatScreen";
 import DataAndStorage from "./screens/settings/DataAndStorage";
+import StatusPrivacy from "./screens/status/Privacy";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -104,7 +105,9 @@ const Main = () => {
 							<Header
 								onMenuPressed={() => {
 									const items = [
-										{ name: "Story privacy", onPressed: () => {} },
+										{ name: "Story privacy", onPressed: () => {
+											navigation.navigate("Status privacy" as never)
+										} },
 									];
 									dispatch(makeVisible({ payload: items, type: "" }));
 								}}
@@ -142,6 +145,7 @@ export function All() {
 				<Stack.Screen name="SettingChat" component={ChatScreen} />
 				<Stack.Screen name="Donate" component={Donate} />
 				<Stack.Screen name="Help" component={Help} />
+				<Stack.Screen name="Status privacy" component={StatusPrivacy} />
 				<Stack.Screen name="DataAndStorage" component={DataAndStorage} />
 				<Stack.Screen
 					name="Messages"
