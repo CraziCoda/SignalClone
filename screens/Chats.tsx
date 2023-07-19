@@ -18,8 +18,8 @@ export default function Chats() {
 		<TouchableWithoutFeedback>
 			<View style={styles.main}>
 				<View>
-					{/* @ts-ignore */}
-					<ChatItem onPress={() => navigation.navigate("Messages")} />
+					<ChatItem name="Ann CS" onPress={() => navigation.navigate("Messages" as never)} type="single" />
+					<ChatItem name="Group 4 Signal Clone" onPress={() => navigation.navigate("Messages" as never)} type="group" />
 				</View>
 
 				<View style={[{ justifyContent: "flex-end", width: "97%" }]}>

@@ -12,7 +12,8 @@ import { makeDrawerVisible } from "../redux/reducers/DrawerSlice";
 
 interface ChatItemProps {
 	onPress?: (event: GestureResponderEvent) => void;
-	type?: "single" | "group";
+	type: "single" | "group";
+	name: string;
 }
 
 export default function ChatItem(props: ChatItemProps) {
@@ -34,11 +35,11 @@ export default function ChatItem(props: ChatItemProps) {
 					}}
 					style={styles.profile}
 				>
-					<ProfileIcon />
+					{props.type == "single" ? <ProfileIcon /> : <GroupIcon />}
 				</TouchableHighlight>
 
 				<View style={styles.main}>
-					<Text style={styles.name}>Ann CS</Text>
+					<Text style={styles.name}>{props.name}</Text>
 					<Text style={styles.msg}>Hello world</Text>
 				</View>
 				<View style={styles.info}>
@@ -54,6 +55,14 @@ const ProfileIcon = () => {
 	return (
 		<View style={styles.profileIcon}>
 			<Text style={styles.profileText}>AC</Text>
+		</View>
+	);
+};
+
+const GroupIcon = () => {
+	return (
+		<View style={styles.profileIcon}>
+			<IonIcons name="people-outline" size={24} style={styles.profileT} />
 		</View>
 	);
 };
@@ -88,6 +97,11 @@ const styles = StyleSheet.create({
 	profileText: {
 		fontSize: 20,
 		fontWeight: "bold",
+	},
+	profileT: {
+		fontSize: 25,
+		fontWeight: "500",
+		color: "#a00",
 	},
 	info: {
 		width: "10%",

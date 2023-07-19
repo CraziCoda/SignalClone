@@ -22,6 +22,7 @@ import Donate from "./screens/settings/Donate";
 import ProfileDrawer from "./screens/drawers/ProfileDrawer";
 import GroupInfo from "./screens/chat/GroupInfo";
 import Notifications from "./screens/settings/Notifications";
+import Privacy from "./screens/settings/Privacy";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -133,6 +134,9 @@ export function All() {
 				<Stack.Screen name="AppIcon" component={AppIcon} />
 				<Stack.Screen name="GroupInfo" component={GroupInfo} />
 				<Stack.Screen name="Notifications" component={Notifications} />
+				<Stack.Screen name="Privacy" component={Privacy} />
+				<Stack.Screen name="Account" component={Account} />
+				<Stack.Screen name="Donate" component={Donate} />
 				<Stack.Screen name="Help" component={Help} />
 				<Stack.Screen
 					name="Messages"

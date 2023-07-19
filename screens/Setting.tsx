@@ -14,7 +14,6 @@ import EntypoIcons from "@expo/vector-icons/Entypo";
 import SimpleIcons from "@expo/vector-icons/SimpleLineIcons";
 import FeatureIcons from "@expo/vector-icons/Feather";
 
-
 export default function Settings({ navigation }) {
 	return (
 		<View style={styles.container}>
@@ -38,7 +37,9 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Account"
 					icon={<MatCIcon name="account-circle-outline" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("Account");
+					}}
 				/>
 				<IconLabel
 					text="Linked devices"
@@ -48,7 +49,9 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Donate to Signal"
 					icon={<MatCIcon name="cards-heart-outline" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("Donate")
+					}}
 				/>
 				<View style={styles.hr}></View>
 
@@ -72,13 +75,17 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Notifications"
 					icon={<SimpleIcons name="bell" size={24} />}
-					onPress={() => {navigation.navigate("Notifications")}}
+					onPress={() => {
+						navigation.navigate("Notifications");
+					}}
 				/>
 
 				<IconLabel
 					text="Privacy"
 					icon={<SimpleIcons name="lock" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("Privacy");
+					}}
 				/>
 				<IconLabel
 					text="Data and storage"

@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
+import { useAppDispatch } from "../redux/hooks";
+import { makeDrawerVisible } from "../redux/reducers/DrawerSlice";
 
 interface CallLabelProps {
 	name: string;
@@ -8,6 +10,8 @@ interface CallLabelProps {
 }
 
 export default function CallLabel({ name, type, date }: CallLabelProps) {
+	const dispatch = useAppDispatch();
+
 	const name_split = name.split(" ");
 	const initials =
 		name_split[0][0] + (name_split.length > 1 ? name_split[1][0] : "");
@@ -15,7 +19,11 @@ export default function CallLabel({ name, type, date }: CallLabelProps) {
 	return (
 		<View style={styles.container}>
 			<View style={{ flexDirection: "row" }}>
-				<TouchableWithoutFeedback>
+				<TouchableWithoutFeedback
+					onPress={() => {
+						dispatch(makeDrawerVisible({}));
+					}}
+				>
 					<View style={styles.contact}>
 						<Text style={{ color: "#666", fontSize: 20, fontWeight: "500" }}>
 							{initials}
@@ -24,7 +32,7 @@ export default function CallLabel({ name, type, date }: CallLabelProps) {
 				</TouchableWithoutFeedback>
 
 				<View>
-					<Text style={{ marginLeft: 20 }}>Ann CS</Text>
+					<Text style={{ marginLeft: 20 }}>{name}</Text>
 					<View
 						style={{
 							flexDirection: "row",
