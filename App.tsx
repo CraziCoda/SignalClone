@@ -7,7 +7,7 @@ import Chats from "./screens/Chats";
 import Calls from "./screens/Calls";
 import Stories from "./screens/Stories";
 import IonIcons from "@expo/vector-icons/Ionicons";
-import Header, { SinglePersonHeader } from "./components/Header";
+import Header, { GroupHeader, SinglePersonHeader } from "./components/Header";
 import Appearance from "./screens/settings/Appeareance";
 import Messages from "./screens/chat/Messages";
 import MenuPopUp from "./components/MenuPopUp";
@@ -23,6 +23,9 @@ import ProfileDrawer from "./screens/drawers/ProfileDrawer";
 import GroupInfo from "./screens/chat/GroupInfo";
 import Notifications from "./screens/settings/Notifications";
 import Privacy from "./screens/settings/Privacy";
+import GroupMessages from "./screens/chat/GroupMessages";
+import ChatScreen from "./screens/settings/ChatScreen";
+import DataAndStorage from "./screens/settings/DataAndStorage";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -136,12 +139,20 @@ export function All() {
 				<Stack.Screen name="Notifications" component={Notifications} />
 				<Stack.Screen name="Privacy" component={Privacy} />
 				<Stack.Screen name="Account" component={Account} />
+				<Stack.Screen name="SettingChat" component={ChatScreen} />
 				<Stack.Screen name="Donate" component={Donate} />
 				<Stack.Screen name="Help" component={Help} />
+				<Stack.Screen name="DataAndStorage" component={DataAndStorage} />
 				<Stack.Screen
 					name="Messages"
 					component={Messages}
 					options={{ header: () => <SinglePersonHeader /> }}
+				/>
+
+				<Stack.Screen
+					name="GroupMessages"
+					component={GroupMessages}
+					options={{ header: () => <GroupHeader /> }}
 				/>
 			</Stack.Navigator>
 

@@ -50,7 +50,7 @@ export default function Settings({ navigation }) {
 					text="Donate to Signal"
 					icon={<MatCIcon name="cards-heart-outline" size={24} />}
 					onPress={() => {
-						navigation.navigate("Donate")
+						navigation.navigate("Donate");
 					}}
 				/>
 				<View style={styles.hr}></View>
@@ -64,7 +64,9 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Chats"
 					icon={<MatCIcon name="chat-outline" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("SettingChat");
+					}}
 				/>
 				<IconLabel
 					text="Stories"
@@ -90,7 +92,9 @@ export default function Settings({ navigation }) {
 				<IconLabel
 					text="Data and storage"
 					icon={<SimpleIcons name="pie-chart" size={24} />}
-					onPress={() => {}}
+					onPress={() => {
+						navigation.navigate("DataAndStorage");
+					}}
 				/>
 
 				<View style={styles.hr}></View>

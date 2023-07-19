@@ -102,6 +102,66 @@ export function SinglePersonHeader() {
 							{ name: "Chat settings", onPressed: () => {} },
 							{ name: "Search", onPressed: () => {} },
 							{ name: "Add to home screen", onPressed: () => {} },
+							{ name: "Format text", onPressed: () => {} },
+						];
+
+						dispatch(makeVisible({ payload: items, type: "" }));
+					}}
+				/>
+			</View>
+		</View>
+	);
+}
+
+export function GroupHeader() {
+	const navigation = useNavigation();
+	const dispatch = useAppDispatch();
+
+	return (
+		<View style={styles2.container}>
+			<View style={{ flexDirection: "row", alignItems: "center" }}>
+				<AntDesign
+					name="arrowleft"
+					size={24}
+					color="black"
+					style={{ marginRight: 20 }}
+					onPress={() => {
+						navigation.goBack();
+					}}
+				/>
+
+				<TouchableWithoutFeedback onPress={()=> navigation.navigate("GroupInfo" as never)}>
+					<View style={styles2.profileI}>
+						<IonIcons name="people-outline" size={24} style={styles.profileT} />
+					</View>
+				</TouchableWithoutFeedback>
+				<View>
+					<Text style={{ fontSize: 20, marginRight: 5, marginTop: 5 }}>
+						Group 1 Signal Clone
+					</Text>
+					<Text>Ann CS, SpiderMan</Text>
+				</View>
+			</View>
+
+			<View style={{ flexDirection: "row", alignItems: "center" }}>
+				<AntDesign
+					name="videocamera"
+					size={24}
+					color="black"
+					style={{ marginHorizontal: 15 }}
+				/>
+
+				<MaterialCommunityIcons
+					name="dots-vertical"
+					size={24}
+					color="black"
+					onPress={() => {
+						const items = [
+							{ name: "Disappearing messages", onPressed: () => {} },
+							{ name: "All media", onPressed: () => {} },
+							{ name: "Chat settings", onPressed: () => {} },
+							{ name: "Search", onPressed: () => {} },
+							{ name: "Add to home screen", onPressed: () => {} },
 							{ name: "Mute notifications", onPressed: () => {} },
 						];
 
@@ -122,6 +182,7 @@ const styles = StyleSheet.create({
 		paddingLeft: 20,
 		paddingRight: 20,
 		height: 100,
+		width: "100%",
 	},
 	headerLeft: {
 		display: "flex",

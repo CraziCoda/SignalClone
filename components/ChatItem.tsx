@@ -9,6 +9,7 @@ import {
 import IonIcons from "@expo/vector-icons/Ionicons";
 import { useAppDispatch } from "../redux/hooks";
 import { makeDrawerVisible } from "../redux/reducers/DrawerSlice";
+import { useNavigation } from "@react-navigation/native";
 
 interface ChatItemProps {
 	onPress?: (event: GestureResponderEvent) => void;
@@ -18,6 +19,7 @@ interface ChatItemProps {
 
 export default function ChatItem(props: ChatItemProps) {
 	const dispatch = useAppDispatch();
+	const navigation = useNavigation();
 
 	return (
 		<TouchableHighlight
@@ -31,7 +33,8 @@ export default function ChatItem(props: ChatItemProps) {
 					activeOpacity={0.5}
 					underlayColor="#ddd"
 					onPress={() => {
-						dispatch(makeDrawerVisible({}));
+						if (props.type == "single") dispatch(makeDrawerVisible({}));
+						else navigation.navigate("GroupInfo" as never);
 					}}
 					style={styles.profile}
 				>

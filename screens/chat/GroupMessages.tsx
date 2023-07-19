@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TextInput, ScrollView } from "react-native";
 import { Ionicons, AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 
-export default function Messages() {
+export default function GroupMessages() {
 	return (
 		<View style={styles.container}>
 			{/* <View style={[{ height: 60 }]}></View> */}
@@ -15,7 +15,7 @@ export default function Messages() {
 			>
 				<View style={styles.profile}>
 					<View style={styles.profileI}>
-						<Ionicons name="people-outline" size={24} style={styles.profileT} />
+                    <Ionicons name="people-outline" size={24} style={styles.profileT} />
 					</View>
 					<Text
 						style={[
@@ -26,7 +26,7 @@ export default function Messages() {
 							},
 						]}
 					>
-						Ann CS
+						Group 1 Signal Clone
 					</Text>
 					<Text
 						style={[
@@ -36,15 +36,11 @@ export default function Messages() {
 							},
 						]}
 					>
-						+233 55 837 1654
+						3 members
 					</Text>
 				</View>
 
-				<MeText />
-				<MeText />
-
-				<OtherText />
-				<OtherText />
+				
 			</ScrollView>
 			<View style={styles.actions}>
 				<View style={styles.msgInput}>

@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, ColorValue } from "react-native";
 import IonIcons from "@expo/vector-icons/Ionicons";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface CardProps {
 	icon: ReactNode;
@@ -9,9 +9,21 @@ interface CardProps {
 }
 
 export default function Card(props: CardProps) {
+	const [visible, setVisibility] = useState(true);
+
 	return (
-		<View style={[styles.container, { backgroundColor: props.bgColor }]}>
-			<IonIcons name="close-outline" size={24} style={styles.close} />
+		<View
+			style={[
+				styles.container,
+				{ backgroundColor: props.bgColor, display: visible ? "flex" : "none" },
+			]}
+		>
+			<IonIcons
+				name="close-outline"
+				size={24}
+				style={styles.close}
+				onPress={() => setVisibility(false)}
+			/>
 			{props.icon}
 			<Text style={styles.text}>{props.text}</Text>
 		</View>
